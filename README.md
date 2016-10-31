@@ -1,3 +1,4 @@
+[![](https://jitpack.io/v/jrvansuita/IconHandler.svg)](https://jitpack.io/#jrvansuita/IconHandler)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-IconHandler-green.svg?style=true)](https://android-arsenal.com/details/1/4525)
 
 # IconHandler
@@ -12,40 +13,40 @@ Copy the Icon.java class file to your projet.
 
 # Implamentation
 
-        //Setting up a icon on backgrond of a View.
-        Icon.put(yourView, R.mipmap.your_icon);
+    //Setting up a icon on backgrond of a View.
+    Icon.put(yourView, R.mipmap.your_icon);
 
-        //Setting up a icon on the ImageView.
-        Icon.put(yourImageView, R.mipmap.your_icon);
+    //Setting up a icon on the ImageView.
+    Icon.put(yourImageView, R.mipmap.your_icon);
 
-        //Setting up a icon on the left of the TextView. Also can use right(), top() and bottom() methods.
-        Icon.left(yourTextView, R.mipmap.your_icon);
+    //Setting up a icon on the left of the TextView. Also can use right(), top() and bottom() methods.
+    Icon.left(yourTextView, R.mipmap.your_icon);
 
-        //Setting up a icon to the ImageView and converting it to blue.
-        Icon.on(yourImageView).blue(R.mipmap.your_icon).put();
-        Icon.top(yourTextView).gray(R.mipmap.your_icon).put();
+    //Setting up a icon to the ImageView and converting it to blue.
+    Icon.on(yourImageView).blue(R.mipmap.your_icon).put();
+    Icon.top(yourTextView).gray(R.mipmap.your_icon).put();
 
-        //Setting up a bitmap as a icon.
-        Icon.right(yourTextView).white(yourBitmap).put();
+    //Setting up a bitmap as a icon.
+    Icon.right(yourTextView).white(yourBitmap).put();
 
-        //You can combine the usage with colors transformations. You can also modify the class to create your own colors.
-        Icon.on(yourImageView).black(R.mipmap.your_icon).put();
+    //You can combine the usage with colors transformations. You can also modify the class to create your own colors.
+    Icon.on(yourImageView).black(R.mipmap.your_icon).put();
 
-        //Setting up a icon to the ImageView and applying alpha. (0-255)
-        Icon.on(yourImageView).blue(R.mipmap.your_icon).alpha(130).put();
+    //Setting up a icon to the ImageView and applying alpha. (0-255)
+    Icon.on(yourImageView).blue(R.mipmap.your_icon).alpha(130).put();
 
-        //Will make the icon appears weak. Receiving focus will reveals the real color of icon.
-        Icon.focus(yourEditText, R.mipmap.your_icon, Gravity.RIGHT);
+    //Will make the icon appears weak. Receiving focus will reveals the real color of icon.
+    Icon.focus(yourEditText, R.mipmap.your_icon, Gravity.RIGHT);
 
-        //Just another edit text to lose the focus of the first.
-        Icon.focus(yourEditText, R.mipmap.your_icon, Gravity.RIGHT);
+    //Just another edit text to lose the focus of the first.
+    Icon.focus(yourEditText, R.mipmap.your_icon, Gravity.RIGHT);
 
-        yourImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Clearing all icons of the View.
-                Icon.clear(yourImageButton);
-                yourEditText.clearFocus();
-                yourImageButton.requestFocus();
-            }
-        });
+    yourImageButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            //Clearing all icons of the View.
+            Icon.clear(yourImageButton);
+            yourEditText.clearFocus();
+            yourImageButton.requestFocus();
+        }
+    });
