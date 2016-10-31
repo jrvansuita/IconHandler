@@ -9,7 +9,25 @@ Handles the drawable binding and position on View, EditText, ImageView or TextVi
 
 
 # Usage
-Copy the Icon.java class file to your projet. 
+
+#### Step 1. Add the JitPack repository to your build file:
+
+    allprojects {
+		repositories {
+			...
+			maven { url "https://jitpack.io" }
+		}
+	}
+
+#### Step 2. Add the dependency
+
+    dependencies {
+	        compile 'com.github.jrvansuita:IconHandler:v1.0.1'
+	}
+
+# Samples
+ You can take a look at the sample app [located on this project](/app/).
+
 
 # Implamentation
 
