@@ -148,6 +148,10 @@ public class Icon {
         tv.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
     }
 
+    public static void clear(ImageView i) {
+        i.setImageBitmap(null);
+    }
+
     public void put() {
         if (v != null) {
             background(v, new SelectorDrawable(v.getContext()));
