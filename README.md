@@ -6,7 +6,7 @@
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-IconHandler-green.svg?style=true)](https://android-arsenal.com/details/1/4525)
 
 # IconHandler
-This class was created to use in Android projects.
+This project was created to use in Android projects.
 
 # Porpouse
 Handles the drawable binding and position on View, EditText, ImageView or TextView. Also can change the icon color, alpha and size using a SelectorDrawable. 
