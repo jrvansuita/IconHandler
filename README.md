@@ -48,6 +48,9 @@ Handles the drawable binding and position on View, EditText, ImageView or TextVi
     Icon.on(yourImageView).blue(R.mipmap.your_icon).put();
     Icon.top(yourTextView).gray(R.mipmap.your_icon).put();
 
+    //Setting up a icon to the ImageView and converting it to your custom color.
+    Icon.on(yourImageView).color(R.color.your_color).icon(R.mipmap.your_icon).put();
+    
     //Setting up a bitmap as a icon.
     Icon.right(yourTextView).white(yourBitmap).put();
 
