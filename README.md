@@ -26,7 +26,7 @@ Handles the drawable binding and position on View, EditText, ImageView or TextVi
 #### Step 2. Add the dependency
 
     dependencies {
-	        compile 'com.github.jrvansuita:IconHandler:v1.0.1'
+	        compile 'com.github.jrvansuita:IconHandler:v1.0.2'
 	}
 
 # Samples
