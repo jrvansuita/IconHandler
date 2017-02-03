@@ -10,6 +10,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.util.StateSet;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -181,7 +183,7 @@ public class Icon {
                 tv.setCompoundDrawablesWithIntrinsicBounds(getForPosition(Gravity.LEFT), getForPosition(Gravity.TOP), getForPosition(Gravity.RIGHT), getForPosition(Gravity.BOTTOM));
             }
         }else if (mi != null){
-            mi.setIcon(new SelectorDrawable(iv.getContext()));
+            mi.setIcon(new SelectorDrawable(MenuItemCompat.getActionView(mi).getContext()));
         }
     }
 
@@ -237,7 +239,7 @@ public class Icon {
             if (bitmap != null) {
                 d = new BitmapDrawable(context.getResources(), bitmap);
             } else {
-                d = context.getResources().getDrawable(icon);
+                d = ContextCompat.getDrawable(context, icon);
             }
 
             return new BitmapDrawable(context.getResources(), alpha(((BitmapDrawable) d).getBitmap(), putAlpha ? alpha : 255));
