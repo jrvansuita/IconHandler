@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         MenuItem item = menu.findItem(R.id.action_icon);
 
-        Icon.on(item).icon(R.mipmap.your_icon).color(R.color.colorPrimaryDark).put();
+        Icon.on(item).icon(R.mipmap.your_icon).pressedEffect(false).color(R.color.colorPrimaryDark).put();
         return true;
     }
 }

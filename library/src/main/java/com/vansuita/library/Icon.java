@@ -25,6 +25,7 @@ public class Icon {
     private int icon = 0;
     private boolean reverseAlpha = false;
     private boolean focus = false;
+    private boolean pressedEffect = true;
     private Bitmap bitmap;
 
     private MenuItem mi;
@@ -113,6 +114,11 @@ public class Icon {
 
     private static void put(TextView tv, int icon, int pos) {
         new Icon(tv, pos).icon(icon).put();
+    }
+
+    public Icon pressedEffect(boolean pressedEffect) {
+        this.pressedEffect = pressedEffect;
+        return this;
     }
 
     public Icon alpha(int a) {
@@ -215,9 +221,11 @@ public class Icon {
             if (focus) {
                 addState(new int[]{android.R.attr.state_focused}, get(reverseAlpha));
                 addState(StateSet.WILD_CARD, get(!reverseAlpha));
-            } else {
+            } else if (pressedEffect){
                 addState(new int[]{android.R.attr.state_pressed, android.R.attr.state_enabled}, get(!reverseAlpha));
                 addState(new int[]{-android.R.attr.state_enabled}, get(!reverseAlpha));
+                addState(StateSet.WILD_CARD, get(reverseAlpha));
+            }else{
                 addState(StateSet.WILD_CARD, get(reverseAlpha));
             }
         }
