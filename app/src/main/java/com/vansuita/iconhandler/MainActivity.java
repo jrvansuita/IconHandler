@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         yourView = findViewById(R.id.first_view);
-        //Setting up a icon on backgrond of a View.
+        //Setting up a icon on background of a View.
         Icon.put(yourView, R.mipmap.your_icon);
 
 
