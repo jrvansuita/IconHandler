@@ -1,6 +1,5 @@
 package com.vansuita.library;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -20,14 +19,11 @@ import java.lang.reflect.Field;
 
 public class Util {
 
-
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public static void background(View v, Drawable d) {
-        int sdk = android.os.Build.VERSION.SDK_INT;
-        if (sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-            v.setBackgroundDrawable(d);
-        } else {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             v.setBackground(d);
+        } else {
+            v.setBackgroundDrawable(d);
         }
     }
 
