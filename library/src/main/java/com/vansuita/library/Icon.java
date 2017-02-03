@@ -1,17 +1,13 @@
 package com.vansuita.library;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.MenuItemCompat;
 import android.util.StateSet;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -173,7 +169,7 @@ public class Icon {
 
     public void put() {
         if (v != null) {
-            background(v, new SelectorDrawable(v.getContext()));
+            Util.background(v, new SelectorDrawable(v.getContext()));
         } else if (iv != null) {
             iv.setImageDrawable(new SelectorDrawable(iv.getContext()));
         } else if (tv != null) {
@@ -182,8 +178,10 @@ public class Icon {
             } else {
                 tv.setCompoundDrawablesWithIntrinsicBounds(getForPosition(Gravity.LEFT), getForPosition(Gravity.TOP), getForPosition(Gravity.RIGHT), getForPosition(Gravity.BOTTOM));
             }
-        }else if (mi != null){
-            mi.setIcon(new SelectorDrawable(MenuItemCompat.getActionView(mi).getContext()));
+        } else if (mi != null) {
+            Context context = Util.getMenuItemContext(mi);
+            if (context != null)
+                mi.setIcon(new SelectorDrawable(context));
         }
     }
 
@@ -242,30 +240,9 @@ public class Icon {
                 d = ContextCompat.getDrawable(context, icon);
             }
 
-            return new BitmapDrawable(context.getResources(), alpha(((BitmapDrawable) d).getBitmap(), putAlpha ? alpha : 255));
+            return new BitmapDrawable(context.getResources(), Util.alpha(((BitmapDrawable) d).getBitmap(), putAlpha ? alpha : 255));
         }
     }
 
-    public static Bitmap alpha(Bitmap input, int alpha) {
-        Bitmap output = Bitmap.createBitmap(input.getWidth(), input.getHeight(), input.getConfig());
 
-        Paint transparentPaint = new Paint();
-        transparentPaint.setAlpha(alpha);
-
-        Canvas canvas = new Canvas(output);
-        canvas.drawBitmap(input, 0, 0, transparentPaint);
-
-
-        return output;
-    }
-
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    public static void background(View v, Drawable d) {
-        int sdk = android.os.Build.VERSION.SDK_INT;
-        if (sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-            v.setBackgroundDrawable(d);
-        } else {
-            v.setBackground(d);
-        }
-    }
 }
