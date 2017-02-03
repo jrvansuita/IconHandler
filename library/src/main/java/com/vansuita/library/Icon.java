@@ -12,11 +12,10 @@ import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
 import android.util.StateSet;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import static android.R.id.edit;
 
 /**
  * Created by jrvansuita on 30/07/15.
@@ -29,10 +28,26 @@ public class Icon {
     private boolean reverseAlpha = false;
     private boolean focus = false;
     private Bitmap bitmap;
-    
+
+    private MenuItem mi;
+
+    Icon(MenuItem mi) {
+        this.mi = mi;
+    }
+
+    public static Icon on(MenuItem mi) {
+        return new Icon(mi);
+    }
+
+    public static void put(MenuItem mi, int icon) {
+        new Icon(mi).icon(icon).put();
+    }
+
+
     Icon(ImageView iv) {
         this.iv = iv;
     }
+
 
     private ImageView iv;
 
@@ -165,6 +180,8 @@ public class Icon {
             } else {
                 tv.setCompoundDrawablesWithIntrinsicBounds(getForPosition(Gravity.LEFT), getForPosition(Gravity.TOP), getForPosition(Gravity.RIGHT), getForPosition(Gravity.BOTTOM));
             }
+        }else if (mi != null){
+            mi.setIcon(new SelectorDrawable(iv.getContext()));
         }
     }
 
@@ -226,8 +243,8 @@ public class Icon {
             return new BitmapDrawable(context.getResources(), alpha(((BitmapDrawable) d).getBitmap(), putAlpha ? alpha : 255));
         }
     }
-    
-     public static Bitmap alpha(Bitmap input, int alpha) {
+
+    public static Bitmap alpha(Bitmap input, int alpha) {
         Bitmap output = Bitmap.createBitmap(input.getWidth(), input.getHeight(), input.getConfig());
 
         Paint transparentPaint = new Paint();
@@ -239,8 +256,8 @@ public class Icon {
 
         return output;
     }
-    
-     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public static void background(View v, Drawable d) {
         int sdk = android.os.Build.VERSION.SDK_INT;
         if (sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {

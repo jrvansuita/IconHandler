@@ -12,7 +12,7 @@ This project was created to use in Android projects.
 Handles the drawable binding and position on View, EditText, ImageView or TextView. Also can change the icon color, alpha and size using a SelectorDrawable. 
 
 
-# Usage
+# Setup
 
 #### Step 1. Add the JitPack repository to your build file:
 
@@ -26,7 +26,7 @@ Handles the drawable binding and position on View, EditText, ImageView or TextVi
 #### Step 2. Add the dependency
 
     dependencies {
-	        compile 'com.github.jrvansuita:IconHandler:v1.0.2'
+	        compile 'com.github.jrvansuita:IconHandler:v1.0.3'
 	}
 
 # Samples
@@ -43,6 +43,9 @@ Handles the drawable binding and position on View, EditText, ImageView or TextVi
 
     //Setting up a icon on the left of the TextView. Also can use right(), top() and bottom() methods.
     Icon.left(yourTextView, R.mipmap.your_icon);
+
+    //Setting up a icon on MenuItem
+    Icon.on(yourMenuItem).icon(R.mipmap.your_icon).put();
 
     //Setting up a icon to the ImageView and converting it to blue.
     Icon.on(yourImageView).blue(R.mipmap.your_icon).put();
