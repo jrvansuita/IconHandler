@@ -246,8 +246,7 @@ public class Icon {
 
         @Override
         protected boolean onStateChange(int[] states) {
-            if (context != null && color > 0) {
-
+            if (context != null && color != 0) {
                 setColorFilter(getPaintColor(), PorterDuff.Mode.SRC_IN);
             }
 
