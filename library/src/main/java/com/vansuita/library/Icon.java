@@ -1,6 +1,7 @@
 package com.vansuita.library;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
@@ -126,8 +127,8 @@ public class Icon {
         return this;
     }
 
-    public Icon color(int res) {
-        this.color = res;
+    public Icon color(int color) {
+        this.color = color;
         return this;
     }
 
@@ -213,6 +214,7 @@ public class Icon {
 
     public class SelectorDrawable extends StateListDrawable {
         private Context context;
+        private int paintColor = 0;
 
         public SelectorDrawable(Context context) {
             super();
@@ -221,19 +223,32 @@ public class Icon {
             if (focus) {
                 addState(new int[]{android.R.attr.state_focused}, get(reverseAlpha));
                 addState(StateSet.WILD_CARD, get(!reverseAlpha));
-            } else if (pressedEffect){
+            } else if (pressedEffect) {
                 addState(new int[]{android.R.attr.state_pressed, android.R.attr.state_enabled}, get(!reverseAlpha));
                 addState(new int[]{-android.R.attr.state_enabled}, get(!reverseAlpha));
                 addState(StateSet.WILD_CARD, get(reverseAlpha));
-            }else{
+            } else {
                 addState(StateSet.WILD_CARD, get(reverseAlpha));
             }
+        }
+
+        public int getPaintColor() {
+            if (paintColor == 0) {
+                try {
+                    paintColor = ContextCompat.getColor(context, color);
+                } catch (Resources.NotFoundException e) {
+                    paintColor = color;
+                }
+            }
+
+            return paintColor;
         }
 
         @Override
         protected boolean onStateChange(int[] states) {
             if (context != null && color > 0) {
-                setColorFilter(context.getResources().getColor(color), PorterDuff.Mode.SRC_IN);
+
+                setColorFilter(getPaintColor(), PorterDuff.Mode.SRC_IN);
             }
 
             return super.onStateChange(states);
