@@ -81,6 +81,8 @@ public class Icon {
     private TextView tv;
     private int pos;
 
+
+
     public static Icon left(TextView tv) {
         return new Icon(tv, Gravity.LEFT);
     }
@@ -175,6 +177,9 @@ public class Icon {
     }
 
     public void put() {
+        if (icon == 0 && bitmap == null)
+            throw new Error("You must provide an icon resource id or a bitmap!");
+
         if (v != null) {
             Util.background(v, new SelectorDrawable(v.getContext()));
         } else if (iv != null) {

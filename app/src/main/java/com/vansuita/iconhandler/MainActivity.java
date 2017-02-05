@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         yourView = findViewById(R.id.first_view);
         //Setting up a icon on background of a View.
         Icon.put(yourView, R.mipmap.your_icon);
@@ -39,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         yourImageView = (ImageView) findViewById(R.id.first_image_view);
         //Setting up a icon on the ImageView.
         Icon.put(yourImageView, R.mipmap.your_icon);
-
 
         yourTextView = (TextView) findViewById(R.id.first_text_view);
         //Setting up a icon on the left of the TextView. Also can use right(), top() and bottom() methods.
