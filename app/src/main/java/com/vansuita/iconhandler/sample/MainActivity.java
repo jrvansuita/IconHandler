@@ -1,4 +1,4 @@
-package com.vansuita.iconhandler;
+package com.vansuita.iconhandler.sample;
 
 
 import android.graphics.Bitmap;
@@ -14,7 +14,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.vansuita.library.Icon;
+import com.vansuita.iconhandler.Icon;
+
 
 public class MainActivity extends AppCompatActivity {
 
