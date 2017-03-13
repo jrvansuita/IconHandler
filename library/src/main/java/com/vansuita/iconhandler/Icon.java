@@ -8,6 +8,9 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.IntDef;
+import android.support.annotation.IntRange;
 import android.support.v4.content.ContextCompat;
 import android.util.StateSet;
 import android.view.Gravity;
@@ -15,6 +18,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 
 /**
  * Created by jrvansuita on 30/07/15.
@@ -29,7 +35,18 @@ public class Icon {
     private boolean pressedEffect = true;
     private Bitmap bitmap;
 
+    private View v;
     private MenuItem mi;
+    private ImageView iv;
+    private TextView tv;
+
+    @IconGravity
+    private int pos = -1;
+
+    @Retention(RetentionPolicy.SOURCE)
+    @IntDef({Gravity.LEFT, Gravity.BOTTOM, Gravity.RIGHT, Gravity.TOP})
+    public @interface IconGravity {
+    }
 
     Icon(MenuItem mi) {
         this.mi = mi;
@@ -48,9 +65,6 @@ public class Icon {
         this.iv = iv;
     }
 
-
-    private ImageView iv;
-
     public static Icon on(ImageView iv) {
         return new Icon(iv);
     }
@@ -63,8 +77,6 @@ public class Icon {
         this.v = v;
     }
 
-    private View v;
-
     public static void put(View v, int icon) {
         new Icon(v).icon(icon).put();
     }
@@ -73,18 +85,21 @@ public class Icon {
         return new Icon(iv);
     }
 
-    Icon(TextView tv, int pos) {
+    Icon(TextView tv) {
         this.tv = tv;
-        this.pos = pos;
     }
 
-    private TextView tv;
-    private int pos;
+    public Icon position(@IconGravity int pos) {
+        this.pos = pos;
+        return this;
+    }
 
-
+    public static Icon on(TextView iv) {
+        return new Icon(iv);
+    }
 
     public static Icon left(TextView tv) {
-        return new Icon(tv, Gravity.LEFT);
+        return new Icon(tv).position(Gravity.LEFT);
     }
 
     public static void left(TextView tv, int icon) {
@@ -92,7 +107,7 @@ public class Icon {
     }
 
     public static Icon right(TextView tv) {
-        return new Icon(tv, Gravity.RIGHT);
+        return new Icon(tv).position(Gravity.RIGHT);
     }
 
     public static void right(TextView tv, int icon) {
@@ -100,7 +115,7 @@ public class Icon {
     }
 
     public static Icon top(TextView tv) {
-        return new Icon(tv, Gravity.TOP);
+        return new Icon(tv).position(Gravity.TOP);
     }
 
     public static void top(TextView tv, int icon) {
@@ -108,15 +123,15 @@ public class Icon {
     }
 
     public static Icon bottom(TextView tv) {
-        return new Icon(tv, Gravity.BOTTOM);
+        return new Icon(tv).position(Gravity.BOTTOM);
     }
 
     public static void bottom(TextView tv, int icon) {
         put(tv, icon, Gravity.BOTTOM);
     }
 
-    private static void put(TextView tv, int icon, int pos) {
-        new Icon(tv, pos).icon(icon).put();
+    private static void put(TextView tv, @DrawableRes int icon, @IconGravity int pos) {
+        new Icon(tv).position(pos).icon(icon).put();
     }
 
     public Icon pressedEffect(boolean pressedEffect) {
@@ -124,7 +139,7 @@ public class Icon {
         return this;
     }
 
-    public Icon alpha(int a) {
+    public Icon alpha(@IntRange(from = 0, to = 255) int a) {
         this.alpha = a;
         return this;
     }
@@ -144,20 +159,8 @@ public class Icon {
         return this;
     }
 
-    public Icon white(Bitmap bitmap) {
-        return bitmap(bitmap).color(android.R.color.white);
-    }
-
     public Icon white(int icon) {
         return icon(icon).color(android.R.color.white);
-    }
-
-    public Icon blue(Bitmap bitmap) {
-        return bitmap(bitmap).color(android.R.color.holo_blue_dark);
-    }
-
-    public Icon blue(int icon) {
-        return icon(icon).color(android.R.color.holo_blue_dark);
     }
 
     public Icon black(int icon) {
@@ -197,6 +200,7 @@ public class Icon {
         }
     }
 
+
     private Drawable getForPosition(int i) {
         return pos == i ? new SelectorDrawable(tv.getContext()) : null;
     }
@@ -206,15 +210,21 @@ public class Icon {
         return this.icon(icon);
     }
 
-    public static void focus(TextView tv, int icon) {
-        focus(tv, icon, Gravity.LEFT);
+    public Icon focusable(boolean focus) {
+        this.focus = focus;
+        return this;
     }
 
+    public static Icon focusable(TextView v) {
+        return focusable(v, 0, Gravity.LEFT);
+    }
 
-    public static void focus(TextView tv, int icon, int pos) {
-        Icon i = new Icon(tv, pos);
-        i.focus = true;
-        i.icon(icon).put();
+    public static Icon focusable(TextView v, int icon) {
+        return focusable(v, icon, Gravity.LEFT);
+    }
+
+    public static Icon focusable(TextView v, @DrawableRes int icon, @IconGravity int pos) {
+        return new Icon(v).position(pos).icon(icon).focusable(true);
     }
 
     public class SelectorDrawable extends StateListDrawable {

@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">IconHandler</string>
+    <string name="example">Example</string>
+    <string name="select_a_color">Select a color</string>
+    <string name="tap_to_change_icon">Tap to change icon</string>
+    <string name="tap_to_change_gravity">Tap to change gravity</string>
+    <string name="view">View</string>
+    <string name="button">Button</string>
+    <string name="textview">TextView</string>
+    <string name="imageview">ImageView</string>
+    <string name="imagebutton">ImageButton</string>
+    <string name="edittext">EditText</string>
+
+    <string name="color_palette">Color Palette</string>
 </resources>

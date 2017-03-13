@@ -1,107 +1,228 @@
 package com.vansuita.iconhandler.sample;
 
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.vansuita.iconhandler.Icon;
+import com.vansuita.iconhandler.Util;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, ColorChooserDialog.ColorCallback {
 
     private View yourView;
-    private ImageView yourImageView;
     private TextView yourTextView;
-    private Bitmap yourBitmap;
     private EditText yourEditText;
+    private Button yourButton;
+    private ImageView yourImageView;
     private ImageButton yourImageButton;
+    private MenuItem yourMenuItem;
+
+    private CardView cvColorSample;
+    private TextView tvColorDescription;
+    private int selectedColor;
+
+    private ImageView ivIconSample;
+    private List<Integer> icons;
+    private int selectedIconPos;
+
+    private List<Integer> gravities;
+    private int selectedGravityPos;
+    private TextView tvGravitySample;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        yourView = findViewById(R.id.first_view);
-        //Setting up a icon on background of a View.
-        Icon.put(yourView, R.mipmap.your_icon);
+
+        setup();
+        bind();
+        listeners();
+
+        init();
+    }
+
+    private void setup() {
+        this.selectedColor = Color.WHITE;
+        this.selectedIconPos = -1;
+        this.selectedGravityPos = 0;
+
+        icons = new ArrayList();
+        icons.add(R.mipmap.ic_account_balance_black_48dp);
+        icons.add(R.mipmap.ic_bug_report_black_48dp);
+        icons.add(R.mipmap.ic_face_black_48dp);
+        icons.add(R.mipmap.ic_favorite_black_48dp);
+        icons.add(R.mipmap.ic_insert_photo_black_48dp);
+        icons.add(R.mipmap.ic_mail_black_48dp);
+        icons.add(R.mipmap.ic_motorcycle_black_48dp);
+        icons.add(R.mipmap.ic_send_black_48dp);
+        icons.add(R.mipmap.ic_toys_black_48dp);
+        icons.add(R.mipmap.ic_weekend_black_48dp);
+
+        gravities = new ArrayList();
+
+        gravities.add(Gravity.RIGHT);
+        gravities.add(Gravity.TOP);
+        gravities.add(Gravity.LEFT);
+        gravities.add(Gravity.BOTTOM);
+    }
+
+    private void bind() {
+        yourView = findViewById(R.id.view);
+        yourTextView = (TextView) findViewById(R.id.textview);
+        yourEditText = (EditText) findViewById(R.id.edittext);
+        yourButton = (Button) findViewById(R.id.button);
+        yourImageView = (ImageView) findViewById(R.id.imageview);
+        yourImageButton = (ImageButton) findViewById(R.id.imagebutton);
+
+        cvColorSample = (CardView) findViewById(R.id.card_color);
+        tvColorDescription = (TextView) findViewById(R.id.color_description);
+
+        ivIconSample = (ImageView) findViewById(R.id.icon);
+
+        tvGravitySample = (TextView) findViewById(R.id.gravity);
+    }
+
+    private void listeners() {
+        findViewById(R.id.color_holder).setOnClickListener(this);
+        findViewById(R.id.icon_holder).setOnClickListener(this);
+        findViewById(R.id.gravity_holder).setOnClickListener(this);
+    }
 
 
-        yourImageView = (ImageView) findViewById(R.id.first_image_view);
-        //Setting up a icon on the ImageView.
-        Icon.put(yourImageView, R.mipmap.your_icon);
+    private void init() {
+        selectNewIcon();
+        setSelectedColor(Color.WHITE);
+        selectNewGravity();
 
-        yourTextView = (TextView) findViewById(R.id.first_text_view);
-        //Setting up a icon on the left of the TextView. Also can use right(), top() and bottom() methods.
-        Icon.left(yourTextView, R.mipmap.your_icon);
+        load();
 
-
-        yourImageView = (ImageView) findViewById(R.id.second_image_view);
-        yourTextView = (TextView) findViewById(R.id.second_text_view);
-        //Setting up a icon to the ImageView and converting it to blue.
-        Icon.on(yourImageView).blue(R.mipmap.your_icon).put();
-        Icon.top(yourTextView).gray(R.mipmap.your_icon).put();
-
-
-        yourTextView = (TextView) findViewById(R.id.third_text_view);
-        yourBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.your_icon);
-        //Setting up a bitmap as a icon.
-        Icon.right(yourTextView).white(yourBitmap).put();
-
-
-        yourImageView = (ImageView) findViewById(R.id.fourth_image_view);
-        //You can combine the usage with colors transformations. You can also modify the class to create your own colors.
-        Icon.on(yourImageView).black(R.mipmap.your_icon).put();
-
-
-        yourImageView = (ImageView) findViewById(R.id.fifth_image_view);
-        //Setting up a icon to the ImageView and applying alpha. (0-255)
-        Icon.on(yourImageView).blue(R.mipmap.your_icon).alpha(130).put();
-
-
-        yourEditText = (EditText) findViewById(R.id.sixth_edit_text);
-        //Will make the icon appears weak. Receiving focus will reveals the real color of icon.
-        Icon.focus(yourEditText, R.mipmap.your_icon, Gravity.RIGHT);
-
-
-        yourEditText = (EditText) findViewById(R.id.seventh_edit_text);
-        //Just another edit text to lose the focus of the first.
-        Icon.focus(yourEditText, R.mipmap.your_icon, Gravity.RIGHT);
-
-
-        yourImageButton = (ImageButton) findViewById(R.id.eighth_image_button);
-        yourImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Clearing all icons of the View.
-                Icon.clear(yourImageButton);
-                yourEditText.clearFocus();
-                yourImageButton.requestFocus();
-            }
-        });
-
+        yourImageButton.requestFocus();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
+        yourMenuItem = menu.findItem(R.id.action_icon);
         return true;
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        MenuItem item = menu.findItem(R.id.action_icon);
+        Icon.on(yourMenuItem).icon(icons.get(selectedIconPos)).pressedEffect(false).color(selectedColor).put();
 
-        Icon.on(item).icon(R.mipmap.your_icon).pressedEffect(false).color(R.color.colorPrimaryDark).put();
-        return true;
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.color_holder:
+                new ColorChooserDialog.Builder(this, R.string.color_palette)
+                        .preselect(selectedColor)
+                        .allowUserColorInput(false)
+                        .customButton(R.string.md_custom_label)
+                        .presetsButton(R.string.md_presets_label)
+                        .show();
+                break;
+
+            case R.id.icon_holder:
+                selectNewIcon();
+                load();
+                break;
+
+            case R.id.gravity_holder:
+                selectNewGravity();
+                load();
+                break;
+        }
+    }
+
+    @Override
+    public void onColorSelection(@NonNull ColorChooserDialog dialog, @ColorInt int selectedColor) {
+        this.setSelectedColor(selectedColor);
+        loadSelectedIcon();
+        load();
+    }
+
+    @Override
+    public void onColorChooserDismissed(@NonNull ColorChooserDialog dialog) {
+
+    }
+
+    private void setSelectedColor(int selectedColor) {
+        this.selectedColor = selectedColor;
+
+        cvColorSample.setCardBackgroundColor(selectedColor);
+        tvColorDescription.setText(String.format("#%06X", (0xFFFFFF & selectedColor)));
+        tvColorDescription.setTextColor(ContextCompat.getColor(this, Util.isColorDark(selectedColor) ? android.R.color.white : android.R.color.black));
+    }
+
+    private void selectNewIcon() {
+        selectedIconPos++;
+
+        if (selectedIconPos >= icons.size())
+            selectedIconPos = 0;
+
+        loadSelectedIcon();
+    }
+
+    private void loadSelectedIcon() {
+        Icon.on(ivIconSample).color(selectedColor).icon(icons.get(selectedIconPos)).put();
+    }
+
+    private void selectNewGravity() {
+        selectedGravityPos++;
+
+        if (selectedGravityPos >= gravities.size())
+            selectedGravityPos = 0;
+
+
+        switch (gravities.get(selectedGravityPos)) {
+            case Gravity.TOP:
+                tvGravitySample.setText("Top");
+                break;
+            case Gravity.BOTTOM:
+                tvGravitySample.setText("Bottom");
+                break;
+            case Gravity.RIGHT:
+                tvGravitySample.setText("Right");
+                break;
+            case Gravity.LEFT:
+                tvGravitySample.setText("Left");
+                break;
+        }
+    }
+
+    private void load() {
+        int position = gravities.get(selectedGravityPos);
+        int iconRes = icons.get(selectedIconPos);
+
+        Icon.on(yourView).color(selectedColor).icon(iconRes).put();
+        Icon.on(yourTextView).color(selectedColor).icon(iconRes).position(position).put();
+        Icon.focusable(yourEditText).color(selectedColor).icon(iconRes).position(position).put();
+        Icon.on(yourButton).color(selectedColor).icon(iconRes).position(position).put();
+        Icon.on(yourImageView).color(selectedColor).icon(iconRes).position(position).put();
+        Icon.on(yourImageButton).color(selectedColor).icon(iconRes).position(position).put();
+        Icon.on(yourMenuItem).icon(iconRes).pressedEffect(false).color(selectedColor).put();
     }
 }

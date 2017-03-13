@@ -3,6 +3,7 @@ package com.vansuita.iconhandler;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -51,6 +52,23 @@ public class Util {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public static boolean isColorDark(int color) {
+        double darkness = 1 - (0.299 * Color.red(color) + 0.587 * Color.green(color) + 0.114 * Color.blue(color)) / 255;
+        if (darkness < 0.5 || color == 0) {
+            return false; // It's a light color
+        } else {
+            return true; // It's a dark color
+        }
+    }
+
+    public static int darker(int color) {
+        int r = Color.red(color);
+        int b = Color.blue(color);
+        int g = Color.green(color);
+
+        return Color.rgb((int) (r * .9), (int) (g * .9), (int) (b * .9));
     }
 
 }
