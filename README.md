@@ -1,6 +1,6 @@
 
  <!-- Library Logo -->
- <img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.png?raw=true" align="left" hspace="1" vspace="1">
+ <img src="app/src/main/res/mipmap-xhdpi/ic_launcher.png?raw=true" align="left" hspace="1" vspace="1">
 
  <!-- Buy me a cup of coffe -->
  <a href='https://ko-fi.com/A406JCM' style='margin:13px;' target='_blank' align="right"><img align="right" height='36' src='https://az743702.vo.msecnd.net/cdn/kofi4.png?v=f' alt='Buy Me a Coffee at ko-fi.com' /></a>
@@ -15,8 +15,8 @@
 [![](https://jitpack.io/v/jrvansuita/IconHandler.svg)](https://jitpack.io/#jrvansuita/IconHandler)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-IconHandler-green.svg?style=true)](https://android-arsenal.com/details/1/4525)
 
- <img src="images/mockups/heart_framed.jpg" height='auto' width='280'/><img src="images/mockups/motorcycle_framed.jpg" height='auto' width='280'/><img src="images/mockups/paper-airplane_framed.jpg" height='auto' width='280'/>
- <img src="images/mockups/picture_framed.jpg" height='auto' width='280'/><img src="images/mockups/vane_framed.jpg" height='auto' width='280'/>
+ <img src="images/mockups/heart_framed.jpg" height='auto' width='250'/><img src="images/mockups/motorcycle_framed.jpg" height='auto' width='250'/><img src="images/mockups/paper-airplane_framed.jpg" height='auto' width='250'/>
+ <img src="images/mockups/picture_framed.jpg" height='auto' width='250'/><img src="images/mockups/vane_framed.jpg" height='auto' width='250'/>
 
  [![Appetize.io](https://img.shields.io/badge/Apptize.io-Run%20Now-brightgreen.svg?)](https://appetize.io/embed/3b4dpd5kv90mpa67mp5h8mugc0?device=nexus7&scale=50&autoplay=true&orientation=portrait&deviceColor=black) [![Demo](https://img.shields.io/badge/Demo-Download-blue.svg)](http://apk-dl.com/dl/com.vansuita.iconhandler.sample)
   [![Codacy Badge](https://api.codacy.com/project/badge/Grade/118bb89e3bed43e2b462201654224a60)](https://www.codacy.com/app/jrvansuita/IconHandler?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jrvansuita/IconHandler&amp;utm_campaign=Badge_Grade)
@@ -89,11 +89,9 @@ dependencies {
             Icon.clear(yourImageButton);
          }
        });
-``
-
+```
 
 #
-
 <a href="https://plus.google.com/+JuniorVansuita" target="_blank">
   <img src="https://s20.postimg.org/59xees8vt/google_plus.png" alt="Google+" witdh="44" height="44" hspace="10">
 </a>
