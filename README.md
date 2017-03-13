@@ -18,8 +18,8 @@
 
  <img src="images/mockups/heart_framed.jpg" height='auto' width='160'/><img src="images/mockups/motorcycle_framed.jpg" height='auto' width='160'/><img src="images/mockups/paper-airplane_framed.jpg" height='auto' width='160'/><img src="images/mockups/picture_framed.jpg" height='auto' width='160'/><img src="images/mockups/vane_framed.jpg" height='auto' width='160'/>
 
- [![Appetize.io](https://img.shields.io/badge/Apptize.io-Run%20Now-brightgreen.svg?)](https://appetize.io/embed/3b4dpd5kv90mpa67mp5h8mugc0?device=nexus7&scale=50&autoplay=true&orientation=portrait&deviceColor=black) [![Demo](https://img.shields.io/badge/Demo-Download-blue.svg)](http://apk-dl.com/dl/com.vansuita.iconhandler.sample)
-  [![Codacy Badge](https://api.codacy.com/project/badge/Grade/118bb89e3bed43e2b462201654224a60)](https://www.codacy.com/app/jrvansuita/IconHandler?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jrvansuita/IconHandler&amp;utm_campaign=Badge_Grade)
+ [![Appetize.io](https://img.shields.io/badge/Apptize.io-Run%20Now-brightgreen.svg?)](https://appetize.io/embed/hz5ywza6nxqr2urz9tewb9er8c?device=nexus7&scale=50&autoplay=true&orientation=portrait&deviceColor=black) [![Demo](https://img.shields.io/badge/Demo-Download-blue.svg)](http://apk-dl.com/dl/com.vansuita.iconhandler.sample)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c2c7d2b5674d481cb631b09b033972a4)](https://www.codacy.com/app/jrvansuita/IconHandler?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jrvansuita/IconHandler&amp;utm_campaign=Badge_Grade)
   <a target="_blank" href="https://developer.android.com/reference/android/os/Build.VERSION_CODES.html#GINGERBREAD"><img src="https://img.shields.io/badge/API-9%2B-blue.svg?style=flat" alt="API" /></a>
 
 
