@@ -5,7 +5,8 @@
  <!-- Buy me a cup of coffe -->
  <a href='https://ko-fi.com/A406JCM' style='margin:13px;' target='_blank' align="right"><img align="right" height='36' src='https://az743702.vo.msecnd.net/cdn/kofi4.png?v=f' alt='Buy Me a Coffee at ko-fi.com' /></a>
  <a href='https://play.google.com/store/apps/details?id=com.vansuita.iconhandler.sample&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target='_blank' align="right"><img align="right" height='36' src='https://s20.postimg.org/muzx3w4jh/google_play_badge.png' alt='Get it on Google Play' /></a>
- # Icon Handler
+
+# Icon Handler
 
 
  This is an [**Android**](https://developer.android.com) project. This library handle the drawable customization and position on View, EditText, ImageView, TextView, Button and etc. You can do a lot with a few lines of code, like change the icon color, alpha or even the size. This library has a lot more customization and features than is able to show here. Please check the sample app and feel free to help with a pull request.
