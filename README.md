@@ -16,7 +16,7 @@
 [![](https://jitpack.io/v/jrvansuita/IconHandler.svg)](https://jitpack.io/#jrvansuita/IconHandler)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-IconHandler-green.svg?style=true)](https://android-arsenal.com/details/1/4525)
 
- <img src="images/mockups/heart_framed.jpg" height='auto' width='150'/><img src="images/mockups/motorcycle_framed.jpg" height='auto' width='150'/><img src="images/mockups/paper-airplane_framed.jpg" height='auto' width='150'/><img src="images/mockups/picture_framed.jpg" height='auto' width='150'/><img src="images/mockups/vane_framed.jpg" height='auto' width='150'/>
+ <img src="images/mockups/heart_framed.jpg" height='auto' width='160'/><img src="images/mockups/motorcycle_framed.jpg" height='auto' width='160'/><img src="images/mockups/paper-airplane_framed.jpg" height='auto' width='160'/><img src="images/mockups/picture_framed.jpg" height='auto' width='160'/><img src="images/mockups/vane_framed.jpg" height='auto' width='160'/>
 
  [![Appetize.io](https://img.shields.io/badge/Apptize.io-Run%20Now-brightgreen.svg?)](https://appetize.io/embed/3b4dpd5kv90mpa67mp5h8mugc0?device=nexus7&scale=50&autoplay=true&orientation=portrait&deviceColor=black) [![Demo](https://img.shields.io/badge/Demo-Download-blue.svg)](http://apk-dl.com/dl/com.vansuita.iconhandler.sample)
   [![Codacy Badge](https://api.codacy.com/project/badge/Grade/118bb89e3bed43e2b462201654224a60)](https://www.codacy.com/app/jrvansuita/IconHandler?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jrvansuita/IconHandler&amp;utm_campaign=Badge_Grade)
@@ -46,49 +46,49 @@ dependencies {
 
 # Implamentation
 ```java
-   //Setting up a icon on background of a View.
-   Icon.put(yourView, R.mipmap.your_icon);
+//Setting up a icon on background of a View.
+Icon.put(yourView, R.mipmap.your_icon);
 
-   //Setting up a icon on the ImageView.
-   Icon.put(yourImageView, R.mipmap.your_icon);
+//Setting up a icon on the ImageView.
+Icon.put(yourImageView, R.mipmap.your_icon);
 
-   //Setting up a icon on the left of the TextView. Also can use right(), top() and bottom() methods.
-   Icon.left(yourTextView, R.mipmap.your_icon);
+//Setting up a icon on the left of the TextView. Also can use right(), top() and bottom() methods.
+Icon.left(yourTextView, R.mipmap.your_icon);
 
-   //Setting up a icon on MenuItem
-   Icon.on(yourMenuItem).icon(R.mipmap.your_icon).put();
+//Setting up a icon on MenuItem
+Icon.on(yourMenuItem).icon(R.mipmap.your_icon).put();
 
-   //Setting up a icon to the ImageView and converting it to blue.
-   Icon.top(yourTextView).gray(R.mipmap.your_icon).put();
+//Setting up a icon to the ImageView and converting it to blue.
+Icon.top(yourTextView).gray(R.mipmap.your_icon).put();
 
-   //Setting up a icon to the ImageView and converting it to your custom color.
-   Icon.on(yourImageView).color(R.color.your_color).icon(R.mipmap.your_icon).put();
+//Setting up a icon to the ImageView and converting it to your custom color.
+Icon.on(yourImageView).color(R.color.your_color).icon(R.mipmap.your_icon).put();
 
-   //Setting up a bitmap as a icon.
-   Icon.right(yourTextView).bitmap(yourBitmap).put();
+//Setting up a bitmap as a icon.
+Icon.right(yourTextView).bitmap(yourBitmap).put();
 
-   //Setting up a icon on dynamic position
-   Icon.on(yourTextView).icon(R.mipmap.your_icon).position(Gravity.LEFT).put();
+//Setting up a icon on dynamic position
+Icon.on(yourTextView).icon(R.mipmap.your_icon).position(Gravity.LEFT).put();
 
-   //You can merge the usage with colors transformations.
-   Icon.on(yourImageView).black(R.mipmap.your_icon).put();
+//You can merge the usage with colors transformations.
+Icon.on(yourImageView).black(R.mipmap.your_icon).put();
 
-   //Setting up a icon to the ImageView and applying alpha. (0-255)
-   Icon.on(yourImageView).white(R.mipmap.your_icon).alpha(130).put();
+//Setting up a icon to the ImageView and applying alpha. (0-255)
+Icon.on(yourImageView).white(R.mipmap.your_icon).alpha(130).put();
 
-   //Will make the icon appears weak. Receiving focus will reveals the real color of icon.
-   Icon.focusable(yourEditText, R.mipmap.your_icon, Gravity.RIGHT);
+//Will make the icon appears weak. Receiving focus will reveals the real color of icon.
+Icon.focusable(yourEditText, R.mipmap.your_icon, Gravity.RIGHT);
 
-   //Just another edit text to lose the focus of the first.
-   Icon.focusable(yourEditText).position(Gravity.RIGHT).icon(R.mipmap.your_icon).put();
+//Just another edit text to lose the focus of the first.
+Icon.focusable(yourEditText).position(Gravity.RIGHT).icon(R.mipmap.your_icon).put();
 
-   yourImageButton.setOnClickListener(new View.OnClickListener() {
-       @Override
-       public void onClick(View view) {
-            //Clearing all icons of the View.
-            Icon.clear(yourImageButton);
-         }
-       });
+yourImageButton.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+         //Clearing all icons of the View.
+         Icon.clear(yourImageButton);
+      }
+    });
 ```
 
 #
