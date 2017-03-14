@@ -14,7 +14,7 @@
 <br/>
 
 [![](https://jitpack.io/v/jrvansuita/IconHandler.svg)](https://jitpack.io/#jrvansuita/IconHandler)
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-IconHandler-green.svg?style=true)](https://android-arsenal.com/details/1/4525)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-IconHandler-green.svg?style=true)](https://android-arsenal.com/details/1/4525) [![MaterialUp](https://img.shields.io/badge/MaterialUp-IconHandler-6ad0d9.svg?)](https://www.uplabs.com/posts/iconhandler) [![ghit.me](https://ghit.me/badge.svg?repo=jrvansuita/IconHandler)](https://ghit.me/repo/jrvansuita/IconHandler)
 
  <img src="images/mockups/heart_framed.jpg" height='auto' width='160'/><img src="images/mockups/motorcycle_framed.jpg" height='auto' width='160'/><img src="images/mockups/paper-airplane_framed.jpg" height='auto' width='160'/><img src="images/mockups/picture_framed.jpg" height='auto' width='160'/><img src="images/mockups/vane_framed.jpg" height='auto' width='160'/>
 
