@@ -16,7 +16,11 @@
 [![](https://jitpack.io/v/jrvansuita/IconHandler.svg)](https://jitpack.io/#jrvansuita/IconHandler)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-IconHandler-green.svg?style=true)](https://android-arsenal.com/details/1/4525) [![MaterialUp](https://img.shields.io/badge/MaterialUp-IconHandler-6ad0d9.svg?)](https://www.uplabs.com/posts/iconhandler) [![ghit.me](https://ghit.me/badge.svg?repo=jrvansuita/IconHandler)](https://ghit.me/repo/jrvansuita/IconHandler)
 
- <img src="images/mockups/heart_framed.jpg" height='auto' width='160'/><img src="images/mockups/motorcycle_framed.jpg" height='auto' width='160'/><img src="images/mockups/paper-airplane_framed.jpg" height='auto' width='160'/><img src="images/mockups/picture_framed.jpg" height='auto' width='160'/><img src="images/mockups/vane_framed.jpg" height='auto' width='160'/>
+ <img src="images/mockups/heart_framed.jpg" height='auto' width='160'/>
+  <img src="images/mockups/motorcycle_framed.jpg" height='auto' width='160'/>
+   <img src="images/mockups/paper-airplane_framed.jpg" height='auto' width='160'/>
+    <img src="images/mockups/picture_framed.jpg" height='auto' width='160'/>
+     <img src="images/mockups/vane_framed.jpg" height='auto' width='160'/>
 
  [![Appetize.io](https://img.shields.io/badge/Apptize.io-Run%20Now-brightgreen.svg?)](https://appetize.io/embed/hz5ywza6nxqr2urz9tewb9er8c?device=nexus7&scale=50&autoplay=true&orientation=portrait&deviceColor=black) [![Demo](https://img.shields.io/badge/Demo-Download-blue.svg)](http://apk-dl.com/dl/com.vansuita.iconhandler.sample)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c2c7d2b5674d481cb631b09b033972a4)](https://www.codacy.com/app/jrvansuita/IconHandler?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jrvansuita/IconHandler&amp;utm_campaign=Badge_Grade)
